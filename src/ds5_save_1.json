@@ -1,0 +1,36 @@
+import json
+
+p={"Persons":[
+    {"id":"405", "이름":"js1"},
+    {"id":"406", "이름":"js2"},
+]}
+
+print json.dumps(p)
+
+
+import io, json
+with io.open('data/ds_save_persons.json', 'w', encoding='utf8') as json_file:
+    data=json.dumps(p, json_file, ensure_ascii=False, encoding='utf8')
+    json_file.write(data)
+
+
+import os, io, json
+with io.open(os.path.join('data','ds_save_persons.json'), 'w') as json_file:
+    json.dump(p, json_file, encoding="utf-8")
+
+
+import io, json, os
+with open(os.path.join('data','ds_save_persons.json'), 'w') as json_file:
+    json.dump(p, json_file)
+
+
+!cat data/ds_save_persons.json
+
+
+import io, json
+json_file=open(os.path.join('data','ds_save_persons.json'), 'w')
+json.dump(p, json_file)
+json_file.close()
+
+
+!cat data/ds_save_persons.json
